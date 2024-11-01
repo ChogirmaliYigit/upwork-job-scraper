@@ -6,6 +6,7 @@ env.read_env()
 BOT_TOKEN = env.str("BOT_TOKEN")
 CHAT_ID = env.str("CHAT_ID")
 SEARCH_KEYWORDS = env.str("SEARCH_KEYWORDS")
+INTERVAL_SECONDS = env.str("INTERVAL_SECONDS", 20)
 
 TEMPLATE = (
     "☘️ <b>{title}</b>\n\n"

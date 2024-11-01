@@ -2,7 +2,7 @@ import asyncio
 import signal
 from aiogram import Bot, Dispatcher
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from .config import BOT_TOKEN
+from .config import BOT_TOKEN, INTERVAL_SECONDS
 from .db import initialize_db
 from .parser import get_upwork_jobs
 
@@ -12,8 +12,7 @@ async def on_startup(bot: Bot, scheduler: AsyncIOScheduler) -> None:
     scheduler.add_job(
         func=get_upwork_jobs,
         trigger="interval",
-        # minutes=5,
-        seconds=15,
+        seconds=INTERVAL_SECONDS,
         kwargs={"bot": bot},
         max_instances=5,
     )

@@ -24,12 +24,14 @@ async def get_upwork_jobs(bot: Bot) -> None:
             f"{key}={val}" for key, val in params.items()
         )
 
-        browser = await p.chromium.launch(headless=False)  # headless mode
+        browser = await p.chromium.launch(headless=True)  # headless mode
         context = await browser.new_context()
 
         # Go to the page
         page = await context.new_page()
         await page.goto(url)
+
+        await asyncio.sleep(5)
 
         # Wait for the page to load
         content = await page.content()  # Get the page content
