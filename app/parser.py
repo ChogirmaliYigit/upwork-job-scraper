@@ -24,7 +24,7 @@ async def get_upwork_jobs(bot: Bot) -> None:
             f"{key}={val}" for key, val in params.items()
         )
 
-        browser = await p.chromium.launch(headless=True)  # headless mode
+        browser = await p.chromium.launch(headless=False)
         context = await browser.new_context()
 
         # Go to the page
